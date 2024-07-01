@@ -8,5 +8,4 @@ date-format: full
 from: markdown+emoji
 --- 
 
-## Welcome
-Lorum ipsum...
+{{< include _intro.qmd >}}
