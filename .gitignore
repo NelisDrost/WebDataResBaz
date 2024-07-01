@@ -1,0 +1,12 @@
+# Quarto build files
+*_files/*
+*.html
+/.quarto/
+_output/
+.luarc.json
+_extensions/
+
+# Virtual env
+.venv/
+
+/.luarc.json

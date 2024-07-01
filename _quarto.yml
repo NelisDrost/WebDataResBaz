@@ -1,0 +1,24 @@
+project:
+  output-dir: _output
+  title: "WebDataResBaz"
+
+format:
+  revealjs:
+    theme: robot-lung2.scss
+    navigation-mode: vertical
+    controls-layout: bottom-right
+    controls-tutorial: true
+    transition: convex
+    width: 1600
+    height: 900
+    margin: 0.2
+    reveal_plugins: ["menu"]
+    reveal_options:
+      menu:
+        numbers: true
+    header: "ResBaz 2024 | Nelis Drost | Getting data from the web"
+    header-logo: ResBaz_transparent_cropped.svg
+    hide-from-titleSlide: all
+    filters:
+      - reveal-header
+      - line-highlight
