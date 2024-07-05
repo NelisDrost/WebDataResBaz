@@ -10,11 +10,25 @@ Read the terms of service:
  - many websites explicitely forbid web scraping
  - some websites (e.g.: Wikipedia) have a code of conduct for scraping
 
+DO NOT scrape paywalled data, that's copyright infringement/piracy.
+
+DO consider the research ethics of the data you're acquiring, especially if its about people.
+
 Avoid placing undue strain on a website. Add reasonable delays between requests.
 
 Be aware that you may get your IP blocked for unusual activity.
 
+Scraping in and of itself is not illegal, but some of the applications of scraping may be.
+
 Web scraping code is often fragile, slight updates to a websites design will require maintainance of the code.
+
+## Crawling vs. scraping
+
+Some ToS (e.g.: Reddit) make a distinction between crawling and scraping.
+
+Crawling is the process of discovering and following links on pages.
+
+Scraping is the process of extracting information from the contents of a page.
 
 ## Typical (research) uses
 

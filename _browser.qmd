@@ -1,0 +1,18 @@
+# Using the browser to understand where data is
+
+Example: [Storm Surge Tool](https://storm-surge.cloud.edu.au/api/docs#/default/read_model_data_models__model_name___get)
+
+1. Open the website or web application in your preferred browser.
+2. Open the browser's developer tools (F12 in Chome & Firefox)
+3. Navigate to the "Network" tab in the developer tools.
+4. Refresh the page to capture all the network requests made by the website.
+5. Look for requests that retrieve data, such as API calls or AJAX requests. These requests are usually indicated by their request method (e.g., GET, POST) and the URL they are sent to.
+6. Click on a specific request to view its details.
+7. In the request details, you can find information about the request headers and query parameters. The headers provide additional information about the request, such as authentication tokens or user agents. The query parameters are used to pass data to the server.
+
+By using the browser dev tools, you can gain insights into the data sources used by a website or web application, understand how the data is retrieved, and manipulate the requests to explore different data scenarios.
+
+## Notes
+Notes:
+- What you see in the inspector may not be what the server initially returns. It may be modified by javascript
+- Edit & resend request (in firefox, not available in chrome) - see also [Postman](https://www.postman.com/)
