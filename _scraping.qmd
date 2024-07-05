@@ -1,0 +1,30 @@
+# Getting data without an API - Web Scraping
+
+Web scraping is the process of extracting information from a website, usually by parsing the html that is used by the web browser to display a page to the user.
+
+This usually requires first manually inspecting the html in order to understand its structure, and how to access the parts you want.
+
+## Caveats
+
+Read the terms of service:
+ - many websites explicitely forbid web scraping
+ - some websites (e.g.: Wikipedia) have a code of conduct for scraping
+
+Avoid placing undue strain on a website. Add reasonable delays between requests.
+
+Be aware that you may get your IP blocked for unusual activity.
+
+Web scraping code is often fragile, slight updates to a websites design will require maintainance of the code.
+
+## Typical (research) uses
+
+Retrieving tabular information.
+
+Tracking changes in published information over time.
+
+Comparing occurences of phrases, links or sentiments between groups of pages.
+
+Building a map of links between pages (web spider/crawler)
+
+## Basics
+[Link to Colab]()
