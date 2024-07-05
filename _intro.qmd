@@ -1,4 +1,4 @@
-# Introduction - How can we get data from the web?
+# Data on the web - what/why/how?
 
 There are two primary ways to retrive data from the internet:
 
@@ -15,6 +15,8 @@ Usually well documented
 May require authentication (i.e.: sign up)
 
 May have usage limits
+
+Multiple types, REST being the most common
 :::
 :::{.column width="50%"}
 ***Scraping***
@@ -34,9 +36,9 @@ Application Programming Interfaces (APIs) are how applications on the web commun
 
 APIs may be intended for private use, e.g.: the back end of an application, or public use: e.g.: dissemination of open data.
 
-## Scraping
+## Web Scraping
 Web scraping is the process of extracting information from a website, usually by parsing the html that is used by the web browser to display a page to the user.
 
-
+A web crawler is a program that automatically follows links on a page to discover more content
 
 ![](images/wiki_table_scrape.png)

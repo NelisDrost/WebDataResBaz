@@ -8,4 +8,16 @@ date-format: full
 from: markdown+emoji
 --- 
 
+# Introduction
+
+Please raise a hand or ask in chat if you have questions, or I need to slow down.
+
+If you're comfortable, please turn your camera on.
+
+***Session structure***
+
+First half - follow along introduction to the basics of APIs and web scraping
+
+Second half - demonstration of more intermediate tools and applications
+
 {{< include _intro.qmd >}}
