@@ -4,6 +4,10 @@ Web scraping is the process of extracting information from a website, usually by
 
 This usually requires first manually inspecting the html in order to understand its structure, and how to access the parts you want.
 
+A web crawler is a program that automatically follows links on a page to discover more content
+
+![](images/wiki_table_scrape.png)
+
 ## Caveats
 
 Read the terms of service:
@@ -41,4 +45,28 @@ Comparing occurences of phrases, links or sentiments between groups of pages.
 Building a map of links between pages (web spider/crawler)
 
 ## Basics
-[Link to Colab]()
+```python
+import json
+from bs4 import BeautifulSoup
+import requests
+import pandas as pd
+import io
+
+# Wikipedia countries list
+url = 'https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population'
+
+# Identify ourselves as per T&Cs
+headers = {'User-Agent': 'nelis.drost@auckland.ac.nz'}
+
+# Get page
+response = requests.get(url, headers=headers)
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Find the table containing the country names and links
+table = soup.find('table', class_='wikitable')
+rows = table.find_all('tr')
+
+# Print the first few rows
+df = pd.read_html(io.StringIO(str(table)))[0]
+display(df.head())
+```

@@ -10,12 +10,6 @@ There are different kinds of APIs. REST is the most common, but SOAP and GraphQL
 
 ## GET requests
 
-```{css, echo=FALSE}
-.reveal code {
-  max-height: 100% !important;
-}
-```
-
 ::::{.columns}
 :::{.column width="50%"}
 Most API requests are simple GET operations

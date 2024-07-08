@@ -30,15 +30,3 @@ Less resource efficient than APIs
 Likely to require maintainance
 :::
 :::::
-
-## APIs
-Application Programming Interfaces (APIs) are how applications on the web communicate - they allow users to submit and retrieve data using a predefined set of endpoints. 
-
-APIs may be intended for private use, e.g.: the back end of an application, or public use: e.g.: dissemination of open data.
-
-## Web Scraping
-Web scraping is the process of extracting information from a website, usually by parsing the html that is used by the web browser to display a page to the user.
-
-A web crawler is a program that automatically follows links on a page to discover more content
-
-![](images/wiki_table_scrape.png)
