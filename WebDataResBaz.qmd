@@ -28,10 +28,9 @@ Second half - demonstration of more intermediate tools and applications
 
 {{< include _scraping.qmd >}}
 
-# Intermediate/advanced techniques
-
 {{< include _browser.qmd >}}
 
+# Intermediate/advanced techniques
 
 # Resources
 
