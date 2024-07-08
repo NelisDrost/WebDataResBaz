@@ -22,7 +22,7 @@ Second half - demonstration of more intermediate tools and applications
 
 {{< include _intro.qmd >}}
 
-{{< include _apis.qmd >}}
+<!-- {{< include _apis.qmd >}} -->
 
 {{< include _api_examples.qmd >}}
 

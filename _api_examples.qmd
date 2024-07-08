@@ -1,4 +1,14 @@
-# API usage examples
+# Introduction to APIs
+
+Application Programming Interfaces (APIs) are how applications on the web communicate - they allow users (or other applications) to submit and retrieve data using a structured set of endpoints. 
+
+APIs may be intended for private use, e.g.: the back end of an application, or public use: e.g.: dissemination of open data.
+
+APIs allow websites to interact and communicate
+
+There are different kinds of APIs. REST is the most common, but SOAP and GraphQL may also be encountered.
+
+## GET requests
 
 ```{css, echo=FALSE}
 .reveal code {
@@ -36,6 +46,7 @@ response = requests.get(
     'http://www.example.com/api',
     params={x: 5}
     )
+
 if response.status_code == 200:
     print(response.json())
 else:
@@ -80,7 +91,7 @@ POST requests are often used for submitting data to the server (e.g.: to store i
 :::{.column width="50%"}
 ```python
 #| code-overflow: wrap
-import json
+import requests
 
 data = {
     'name': 'John Doe',
@@ -102,6 +113,67 @@ if response.status_code == 200:
     print(response.json())
 else:
     print(response.status_code)
+```
+:::
+::::
+
+## Authentication
+
+::::{.columns}
+:::{.column width="50%"}
+APIs may require authentication
+
+Usually this requires you to sign up to the provider and generate an API key
+
+Read the API docs to see how to provide the key
+
+Other methods, such as Auth0, are more complex
+:::
+:::{.column width="50%"}
+```python
+import requests
+
+api_key = 'secret_API_key'
+
+response = requests.get(
+    'http://www.example.com/api',
+    params={x: 5},
+    headers={'api-key': api_key}
+    )
+
+if response.status_code == 200:
+    print(response.json())
+else:
+    print(response.status_code)
+```
+:::
+::::
+
+## Pagination
+
+::::{.columns}
+:::{.column width="50%"}
+If you're requesting lots of data, some APIs will serve one page of items at a time
+
+You'll need to make multiple requests to get all of the data
+:::
+:::{.column width="50%"}
+```python
+import requests
+
+result = []
+response = requests.get('http://www.example.com/api')
+data = response.json()
+result.append(data['items'])
+
+pages = data['pages']
+for page in range(2, pages):
+    response = requests.get(
+        'http://www.example.com/api',
+        params={'page': page})
+    result.append(response.json()['items']
+
+print(result)
 ```
 :::
 ::::
