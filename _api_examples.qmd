@@ -1,0 +1,107 @@
+# API usage examples
+
+```{css, echo=FALSE}
+.reveal code {
+  max-height: 100% !important;
+}
+```
+
+::::{.columns}
+:::{.column width="50%"}
+Most API requests are simple GET operations
+
+These send a request to a specific URL endpoint (/api in the example)
+
+They can include query parameters as part of the URL
+
+The server will send back a response, usually in JSON format
+
+This will include a response code indicating if the request succeeded:
+
+| Code | Meaning |
+|------|---------|
+| 200  | OK      |
+| 400  | Bad Request |
+| 401  | Unauthorized |
+| 403  | Forbidden |
+| 404  | Not Found |
+| 500  | Internal Server Error |
+
+:::
+:::{.column width="50%"}
+```python
+import requests
+
+response = requests.get(
+    'http://www.example.com/api',
+    params={x: 5}
+    )
+if response.status_code == 200:
+    print(response.json())
+else:
+    print(response.status_code)
+```
+<!-- ```R
+library(httr)
+library(jsonlite)
+
+response <- GET(
+    url = "http://www.example.com/api",
+    query = list(x = 5)
+)
+
+if (status_code(response) == 200) {
+    data = fromJSON(rawToChar(res$content))
+    print(data)
+} else {
+    print(status_code(response))
+}
+``` -->
+```
+curl http://www.example.com/api?x=5
+```
+
+:::
+::::
+
+
+## POST requests
+
+::::{.columns}
+:::{.column width="50%"}
+POST endpoints allow you to send more data to the server
+
+This could be json data, or a file
+
+API endpoints only support specific request types
+
+POST requests are often used for submitting data to the server (e.g.: to store it in a database). They may also be used for requesting data with more complex input
+:::
+:::{.column width="50%"}
+```python
+#| code-overflow: wrap
+import json
+
+data = {
+    'name': 'John Doe',
+    'age': 30,
+    'email': 'johndoe@example.com'
+}
+
+files={ 
+    'upload_file': open('file.txt', 'rb') 
+}
+
+response = requests.post(
+    'http://www.example.com/api',
+    json=data,
+    files=files
+)
+
+if response.status_code == 200:
+    print(response.json())
+else:
+    print(response.status_code)
+```
+:::
+::::
