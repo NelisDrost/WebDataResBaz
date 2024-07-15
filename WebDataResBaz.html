@@ -10,7 +10,7 @@
 <link href="WebDataResBaz_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="WebDataResBaz_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
 <link href="WebDataResBaz_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.557">
+  <meta name="generator" content="quarto-1.3.353">
 
   <meta name="author" content="Nelis Drost">
   <title>Getting data from the web</title>
@@ -31,6 +31,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="WebDataResBaz_files/libs/revealjs/dist/theme/quarto.css">
   <link href="WebDataResBaz_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -158,8 +223,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -344,9 +408,17 @@ Nelis Drost
 
   <p class="date">Monday, July 1, 2024</p>
 </section>
-<section>
-<section id="introduction---how-can-we-get-data-from-the-web" class="title-slide slide level1 center">
-<h1>Introduction - How can we get data from the web?</h1>
+<section id="introduction" class="title-slide slide level1 center">
+<h1>Introduction</h1>
+<p>Please raise a hand or ask in chat if you have questions, or I need to slow down.</p>
+<p>If you’re comfortable, please turn your camera on.</p>
+<p><strong><em>Session structure</em></strong></p>
+<p>First half - follow along introduction to the basics of APIs and web scraping</p>
+<p>Second half - demonstration of more intermediate tools and applications</p>
+</section>
+
+<section id="data-on-the-web---whatwhyhow" class="title-slide slide level1 center">
+<h1>Data on the web - what/why/how?</h1>
 <p>There are two primary ways to retrive data from the internet:</p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -356,6 +428,7 @@ Nelis Drost
 <p>Usually well documented</p>
 <p>May require authentication (i.e.: sign up)</p>
 <p>May have usage limits</p>
+<p>Multiple types, REST being the most common</p>
 </div><div class="column" style="width:50%;">
 <p><strong><em>Scraping</em></strong></p>
 <p>Allows download of almost any data</p>
@@ -364,20 +437,264 @@ Nelis Drost
 <p>Likely to require maintainance</p>
 </div>
 </div>
+<!-- {{< include _apis.qmd >}} -->
 </section>
-<section id="apis" class="slide level2">
-<h2>APIs</h2>
-<p>Application Programming Interfaces (APIs) are how applications on the web communicate - they allow users to submit and retrieve data using a predefined set of endpoints.</p>
+
+<section>
+<section id="introduction-to-apis" class="title-slide slide level1 center">
+<h1>Introduction to APIs</h1>
+<p>Application Programming Interfaces (APIs) are how applications on the web communicate - they allow users (or other applications) to submit and retrieve data using a structured set of endpoints.</p>
 <p>APIs may be intended for private use, e.g.: the back end of an application, or public use: e.g.: dissemination of open data.</p>
+<p>APIs allow websites to interact and communicate</p>
+<p>There are different kinds of APIs. REST is the most common, but SOAP and GraphQL may also be encountered.</p>
 </section>
-<section id="scraping" class="slide level2">
-<h2>Scraping</h2>
+<section id="get-requests" class="slide level2">
+<h2>GET requests</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Most API requests are simple GET operations</p>
+<p>These send a request to a specific URL endpoint (/api in the example)</p>
+<p>They can include query parameters as part of the URL</p>
+<p>The server will send back a response, usually in JSON format</p>
+<p>This will include a response code indicating if the request succeeded:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>400</td>
+<td>Bad Request</td>
+</tr>
+<tr class="odd">
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr class="even">
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr class="odd">
+<td>404</td>
+<td>Not Found</td>
+</tr>
+<tr class="even">
+<td>500</td>
+<td>Internal Server Error</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>response <span class="op">=</span> requests.get(</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="st">'http://www.example.com/api'</span>,</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    params<span class="op">=</span>{x: <span class="dv">5</span>}</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    )</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    <span class="bu">print</span>(response.json())</span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="cf">else</span>:</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    <span class="bu">print</span>(response.status_code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- ```R
+library(httr)
+library(jsonlite)
+
+response <- GET(
+    url = "http://www.example.com/api",
+    query = list(x = 5)
+)
+
+if (status_code(response) == 200) {
+    data = fromJSON(rawToChar(res$content))
+    print(data)
+} else {
+    print(status_code(response))
+}
+``` -->
+<pre><code>curl http://www.example.com/api?x=5</code></pre>
+</div>
+</div>
+</section>
+<section id="post-requests" class="slide level2">
+<h2>POST requests</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>POST endpoints allow you to send more data to the server</p>
+<p>This could be json data, or a file</p>
+<p>API endpoints only support specific request types</p>
+<p>POST requests are often used for submitting data to the server (e.g.: to store it in a database). They may also be used for requesting data with more complex input</p>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#| code-overflow: wrap</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="im">import</span> requests</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>data <span class="op">=</span> {</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="st">'name'</span>: <span class="st">'John Doe'</span>,</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="st">'age'</span>: <span class="dv">30</span>,</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="st">'email'</span>: <span class="st">'johndoe@example.com'</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>}</span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a>files<span class="op">=</span>{ </span>
+<span id="cb3-11"><a href="#cb3-11"></a>    <span class="st">'upload_file'</span>: <span class="bu">open</span>(<span class="st">'file.txt'</span>, <span class="st">'rb'</span>) </span>
+<span id="cb3-12"><a href="#cb3-12"></a>}</span>
+<span id="cb3-13"><a href="#cb3-13"></a></span>
+<span id="cb3-14"><a href="#cb3-14"></a>response <span class="op">=</span> requests.post(</span>
+<span id="cb3-15"><a href="#cb3-15"></a>    <span class="st">'http://www.example.com/api'</span>,</span>
+<span id="cb3-16"><a href="#cb3-16"></a>    json<span class="op">=</span>data,</span>
+<span id="cb3-17"><a href="#cb3-17"></a>    files<span class="op">=</span>files</span>
+<span id="cb3-18"><a href="#cb3-18"></a>)</span>
+<span id="cb3-19"><a href="#cb3-19"></a></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb3-21"><a href="#cb3-21"></a>    <span class="bu">print</span>(response.json())</span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="cf">else</span>:</span>
+<span id="cb3-23"><a href="#cb3-23"></a>    <span class="bu">print</span>(response.status_code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="authentication" class="slide level2">
+<h2>Authentication</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>APIs may require authentication</p>
+<p>Usually this requires you to sign up to the provider and generate an API key</p>
+<p>Read the API docs to see how to provide the key</p>
+<p>Other methods, such as Auth0, are more complex</p>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> requests</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>api_key <span class="op">=</span> <span class="st">'secret_API_key'</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a>response <span class="op">=</span> requests.get(</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="st">'http://www.example.com/api'</span>,</span>
+<span id="cb4-7"><a href="#cb4-7"></a>    params<span class="op">=</span>{x: <span class="dv">5</span>},</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    headers<span class="op">=</span>{<span class="st">'api-key'</span>: api_key}</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    )</span>
+<span id="cb4-10"><a href="#cb4-10"></a></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb4-12"><a href="#cb4-12"></a>    <span class="bu">print</span>(response.json())</span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="cf">else</span>:</span>
+<span id="cb4-14"><a href="#cb4-14"></a>    <span class="bu">print</span>(response.status_code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="pagination" class="slide level2">
+<h2>Pagination</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>If you’re requesting lots of data, some APIs will serve one page of items at a time</p>
+<p>You’ll need to make multiple requests to get all of the data</p>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> requests</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a>result <span class="op">=</span> []</span>
+<span id="cb5-4"><a href="#cb5-4"></a>response <span class="op">=</span> requests.get(<span class="st">'http://www.example.com/api'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a>data <span class="op">=</span> response.json()</span>
+<span id="cb5-6"><a href="#cb5-6"></a>result.append(data[<span class="st">'items'</span>])</span>
+<span id="cb5-7"><a href="#cb5-7"></a></span>
+<span id="cb5-8"><a href="#cb5-8"></a>pages <span class="op">=</span> data[<span class="st">'pages'</span>]</span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="cf">for</span> page <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, pages):</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    response <span class="op">=</span> requests.get(</span>
+<span id="cb5-11"><a href="#cb5-11"></a>        <span class="st">'http://www.example.com/api'</span>,</span>
+<span id="cb5-12"><a href="#cb5-12"></a>        params<span class="op">=</span>{<span class="st">'page'</span>: page})</span>
+<span id="cb5-13"><a href="#cb5-13"></a>    result.append(response.json()[<span class="st">'items'</span>]</span>
+<span id="cb5-14"><a href="#cb5-14"></a></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="getting-data-without-an-api---web-scraping" class="title-slide slide level1 center">
+<h1>Getting data without an API - Web Scraping</h1>
 <p>Web scraping is the process of extracting information from a website, usually by parsing the html that is used by the web browser to display a page to the user.</p>
-<p><img data-src="images/wiki_table_scrape.png"></p>
-<div class="quarto-auto-generated-content">
+<p>This usually requires first manually inspecting the html in order to understand its structure, and how to access the parts you want.</p>
+<p>A web crawler is a program that automatically follows links on a page to discover more content</p>
+
+<img data-src="images/wiki_table_scrape.png" class="r-stretch"></section>
+<section id="caveats" class="slide level2">
+<h2>Caveats</h2>
+<p>Read the terms of service: - many websites explicitely forbid web scraping - some websites (e.g.: Wikipedia) have a code of conduct for scraping</p>
+<p>DO NOT scrape paywalled data, that’s copyright infringement/piracy.</p>
+<p>DO consider the research ethics of the data you’re acquiring, especially if its about people.</p>
+<p>Avoid placing undue strain on a website. Add reasonable delays between requests.</p>
+<p>Be aware that you may get your IP blocked for unusual activity.</p>
+<p>Scraping in and of itself is not illegal, but some of the applications of scraping may be.</p>
+<p>Web scraping code is often fragile, slight updates to a websites design will require maintainance of the code.</p>
+</section>
+<section id="crawling-vs.-scraping" class="slide level2">
+<h2>Crawling vs.&nbsp;scraping</h2>
+<p>Some ToS (e.g.: Reddit) make a distinction between crawling and scraping.</p>
+<p>Crawling is the process of discovering and following links on pages.</p>
+<p>Scraping is the process of extracting information from the contents of a page.</p>
+</section>
+<section id="typical-research-uses" class="slide level2">
+<h2>Typical (research) uses</h2>
+<p>Retrieving tabular information.</p>
+<p>Tracking changes in published information over time.</p>
+<p>Comparing occurences of phrases, links or sentiments between groups of pages.</p>
+<p>Building a map of links between pages (web spider/crawler)</p>
+</section>
+<section id="basics" class="slide level2">
+<h2>Basics</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> json</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="im">import</span> requests</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="im">import</span> io</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co"># Wikipedia countries list</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>url <span class="op">=</span> <span class="st">'https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population'</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co"># Identify ourselves as per T&amp;Cs</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>headers <span class="op">=</span> {<span class="st">'User-Agent'</span>: <span class="st">'nelis.drost@auckland.ac.nz'</span>}</span>
+<span id="cb6-12"><a href="#cb6-12"></a></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co"># Get page</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a>response <span class="op">=</span> requests.get(url, headers<span class="op">=</span>headers)</span>
+<span id="cb6-15"><a href="#cb6-15"></a>soup <span class="op">=</span> BeautifulSoup(response.text, <span class="st">'html.parser'</span>)</span>
+<span id="cb6-16"><a href="#cb6-16"></a></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="co"># Find the table containing the country names and links</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a>table <span class="op">=</span> soup.find(<span class="st">'table'</span>, class_<span class="op">=</span><span class="st">'wikitable'</span>)</span>
+<span id="cb6-19"><a href="#cb6-19"></a>rows <span class="op">=</span> table.find_all(<span class="st">'tr'</span>)</span>
+<span id="cb6-20"><a href="#cb6-20"></a></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="co"># Print the first few rows</span></span>
+<span id="cb6-22"><a href="#cb6-22"></a>df <span class="op">=</span> pd.read_html(io.StringIO(<span class="bu">str</span>(table)))[<span class="dv">0</span>]</span>
+<span id="cb6-23"><a href="#cb6-23"></a>display(df.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="using-the-browser-to-understand-where-data-is" class="title-slide slide level1 center">
+<h1>Using the browser to understand where data is</h1>
+<p>Example: <a href="https://storm-surge.cloud.edu.au/api/docs#/default/read_model_data_models__model_name___get">Storm Surge Tool</a></p>
+<ol type="1">
+<li>Open the website or web application in your preferred browser.</li>
+<li>Open the browser’s developer tools (F12 in Chome &amp; Firefox)</li>
+<li>Navigate to the “Network” tab in the developer tools.</li>
+<li>Refresh the page to capture all the network requests made by the website.</li>
+<li>Look for requests that retrieve data, such as API calls or AJAX requests. These requests are usually indicated by their request method (e.g., GET, POST) and the URL they are sent to.</li>
+<li>Click on a specific request to view its details.</li>
+<li>In the request details, you can find information about the request headers and query parameters. The headers provide additional information about the request, such as authentication tokens or user agents. The query parameters are used to pass data to the server.</li>
+</ol>
+<p>By using the browser dev tools, you can gain insights into the data sources used by a website or web application, understand how the data is retrieved, and manipulate the requests to explore different data scenarios.</p>
+</section>
+<section id="notes" class="slide level2">
+<h2>Notes</h2>
+<p>Notes: - What you see in the inspector may not be what the server initially returns. It may be modified by javascript - Edit &amp; resend request (in firefox, not available in chrome) - see also <a href="https://www.postman.com/">Postman</a></p>
+</section></section>
+<section id="intermediateadvanced-techniques" class="title-slide slide level1 center">
+<h1>Intermediate/advanced techniques</h1>
+
+</section>
+
+<section id="resources" class="title-slide slide level1 center">
+<h1>Resources</h1>
+<p>https://www.dataquest.io/blog/r-api-tutorial/</p>
 <div class="footer footer-default">
 
-</div>
 </div>
 <div class="reveal-header">
 <div class="header-logo" data-hide-from-titleslide="true">
@@ -393,7 +710,7 @@ Nelis Drost
 <p> </p>
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
@@ -420,6 +737,7 @@ Nelis Drost
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -680,27 +998,10 @@ Nelis Drost
         // clear code selection
         e.clearSelection();
       });
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
-          }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -710,17 +1011,8 @@ Nelis Drost
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -734,11 +1026,7 @@ Nelis Drost
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
+          return note.innerHTML;
         });
       }
       const findCites = (el) => {
