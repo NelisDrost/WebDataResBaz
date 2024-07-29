@@ -3,7 +3,7 @@ title: "Getting data from the web"
 subtitle: "Research Bazar (ResBaz) 2024"
 author: "Nelis Drost"
 institute: "The University of Auckland"
-date: 2024-07-01
+date: 2024-07-08
 date-format: full
 from: markdown+emoji
 --- 
