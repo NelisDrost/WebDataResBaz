@@ -30,8 +30,6 @@ Second half - demonstration of more intermediate tools and applications
 
 {{< include _browser.qmd >}}
 
-# Intermediate/advanced techniques
-
 # Resources
 
 https://www.dataquest.io/blog/r-api-tutorial/
